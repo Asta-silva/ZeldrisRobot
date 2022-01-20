@@ -106,7 +106,7 @@ if ENV:
     PORT = int(os.environ.get("PORT", 5000))
     CERT_PATH = os.environ.get("CERT_PATH")
 
-    DB_URI = os.environ.get("DATABASE_URL", " postgres://qhazacag:YdDPbUTz722YQNqpbCqjUdT927WFY4dC@fanny.db.elephantsql.com/qhazacag")
+    DB_URI = os.environ.get("DATABASE_URL", "postgres://xiruapujyokomr:254d7f4b6b20a8faee1afdec944eb172f9c4cfa85fbb7c6666d73bbb1afcf467@ec2-18-208-49-190.compute-1.amazonaws.com:5432/d89ugh5iab5m69")
     REDIS_URL = os.environ.get("REDIS_URL")
     DONATION_LINK = os.environ.get("DONATION_LINK")
     LOAD = os.environ.get("LOAD", "").split()

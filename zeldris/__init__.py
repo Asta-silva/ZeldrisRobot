@@ -123,6 +123,7 @@ if ENV:
     API_HASH = os.environ.get("API_HASH", None)
     SPAMWATCH = os.environ.get("SPAMWATCH_API", None)
     SPAMMERS = os.environ.get("SPAMMERS", None)
+    SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "Freia_Support")
 
 else:
     from zeldris.config import Development as Config
@@ -191,6 +192,7 @@ else:
     API_ID = Config.API_ID
     SPAMWATCH = Config.SPAMWATCH_API
     SPAMMERS = Config.SPAMMERS
+    SUPPORT_CHAT = Config.SUPPORT_CHAT
 
 # Dont Remove This!!!
 DEV_USERS.add(OWNER_ID)

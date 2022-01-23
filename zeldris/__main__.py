@@ -4,7 +4,7 @@ import re
 from sys import argv
 from typing import Optional
 
-from Flare_Robot import (
+from zeldris import (
     ALLOW_EXCL,
     CERT_PATH,
     DONATION_LINK,
@@ -23,10 +23,10 @@ from Flare_Robot import (
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from Flare_Robot.modules import ALL_MODULES
-import Flare_Robot.modules.sql.users_sql as sql
-from Flare_Robot.modules.helper_funcs.chat_status import is_user_admin
-from Flare_Robot.modules.helper_funcs.misc import paginate_modules
+from zeldris.modules import ALL_MODULES
+import zeldris.modules.sql.users_sql as sql
+from zeldris.modules.helper_funcs.chat_status import is_user_admin
+from zeldris.modules.helper_funcs.misc import paginate_modules
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
     BadRequest,

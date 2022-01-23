@@ -103,6 +103,20 @@ PM_START_TEXT = """
 ➛ Try The Help Buttons Below To Know My Abilities[.](https://telegra.ph/file/4d339f72dfe6e545efac5.jpg) ××
 """
 
+HELP_STRINGS = """
+Hey there, I'm Flare Robot !
+To make me functional, make sure that i have enough rights in your group.
+Helpful commands:
+- /start: Starts me! You've probably already used this.
+- /help: Sends this message; I'll tell you more about myself!
+- /donate: Gives you info on how to support me and my creator.
+All commands can be used with the following: / !
+List of all the Modules:
+""".format(
+    dispatcher.bot.first_name,
+    "" if not ALLOW_EXCL else "📝All commands can either be used with / or !.",
+)
+
 buttons = [
     [
         InlineKeyboardButton(
@@ -138,17 +152,6 @@ buttons = [
     ],
 ]
 
-HELP_STRINGS = f"""
-Hello there! My name is *{dispatcher.bot.first_name}*.
-I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of \
-the things I can help you with.
-*Main* commands available:
-× /start: Starts me, can be used to check i'm alive or no...
-× /help: PM's you this message.
-× /help <module name>: PM's you info about that module.
-× /settings: in PM: will send you your settings for all supported modules.
-- in a group: will redirect you to pm, with all that chat's settings.
-\nClick on the buttons below to get documentation about specific modules!"""
 
 IMPORTED = {}
 MIGRATEABLE = []

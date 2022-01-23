@@ -220,7 +220,7 @@ TIGERS = list(TIGERS)
 
 
 # Load at end to ensure all prev variables have been set
-from Flare_Robot.modules.helper_funcs.handlers import (
+from zeldris.modules.helper_funcs.handlers import (
     CustomCommandHandler,
     CustomMessageHandler,
     CustomRegexHandler,

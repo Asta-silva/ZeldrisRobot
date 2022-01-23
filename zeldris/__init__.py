@@ -190,11 +190,16 @@ else:
         sw = None
         LOGGER.warning("Can't connect to SpamWatch!")
 
-updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("flare", API_ID, API_HASH)
-dispatcher = updater.dispatcher
 pbot = Client("FlarePyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 mongo_client = MongoClient(MONGO_DB_URI)
+client = TelegramClient(MemorySession(), API_ID, API_HASH)
+updater = tg.Updater(
+    TOKEN,
+    workers=min(32, os.cpu_count() + 4),
+    request_kwargs={"read_timeout": 10, "connect_timeout": 10},
+)
+dispatcher = updater.dispatcher
 db = mongo_client.Flare_Robot
 session_name = TOKEN.split(":")[0]
 pgram = Client(

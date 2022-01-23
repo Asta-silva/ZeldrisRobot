@@ -91,7 +91,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-ZELDRIS_IMG = "https://telegra.ph/file/1fa00785f30375c0c1b50.jpg"
+ZELDRIS_IMG = "https://telegra.ph/file/094e440e1644222cdf885.mp4"
 
 PM_START_TEXT = """
 ────「 {} 」────
@@ -269,9 +269,8 @@ def start(update: Update, context: CallbackContext):
                 timeout=60,
             )
     else:
-        message.reply_photo(
-            ZELDRIS_IMG,
-            caption="<b>Yes, I'm alive!\nHaven't sleep since</b>: <code>{}</code>".format(
+        update.effective_message.reply_animation(
+            GROUP_START_IMG, caption= "I won't sleep until I satisfy you!\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
@@ -279,11 +278,11 @@ def start(update: Update, context: CallbackContext):
                 [
                     [
                         InlineKeyboardButton(
-                            text="☎️ Support",
-                            url="https://t.me/Freia_Support",
+                            text="🚑 Support",
+                            url=f"https://telegram.dog/Freia_Support",
                         ),
                         InlineKeyboardButton(
-                            text="Updates 📡",
+                            text="📢 Updates",
                             url="https://t.me/Freia_Updates",
                         ),
                     ]
@@ -291,7 +290,7 @@ def start(update: Update, context: CallbackContext):
             ),
         )
 
-
+        
 def error_handler(_, context):
     """for test purposes"""
     try:

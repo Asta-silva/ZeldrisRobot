@@ -231,8 +231,7 @@ updater = tg.Updater(
 dispatcher = updater.dispatcher
 
 pgram = client(
-    session_name,
-    bot_token=TOKEN,
+    session_name
 )
 
 

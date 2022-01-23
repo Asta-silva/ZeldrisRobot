@@ -230,6 +230,13 @@ updater = tg.Updater(
 )
 dispatcher = updater.dispatcher
 
+pgram = client(
+    session_name,
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=TOKEN,
+)
+
 
 DEV_USERS = list(DEV_USERS)
 WHITELIST_USERS = list(WHITELIST_USERS)

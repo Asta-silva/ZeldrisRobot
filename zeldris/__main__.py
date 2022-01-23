@@ -18,7 +18,8 @@ from zeldris import (
     dispatcher,
     StartTime,
     telethn,
-    updater)
+    updater,
+    pbot)
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
@@ -44,7 +45,7 @@ from telegram.ext import (
 )
 from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
 from telegram.utils.helpers import escape_markdown
-from pyrogram import client, idle
+from pyrogram import Client, idle
 from telethon import Button, events
 
 
@@ -708,5 +709,6 @@ def main():
 
 if __name__ == "__main__":
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
-    client.start(bot_token=TOKEN)
+    telethn.start(bot_token=TOKEN)
+    pbot.start()
     main()

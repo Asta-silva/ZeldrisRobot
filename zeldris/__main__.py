@@ -94,9 +94,14 @@ def get_readable_time(seconds: int) -> str:
 ZELDRIS_IMG = "https://telegra.ph/file/1fa00785f30375c0c1b50.jpg"
 
 PM_START_TEXT = """
-Hey there! my name is *{}*. 
-A super Advance group management bot with so many cool features . [ㅤ](https://telegra.ph/file/4d339f72dfe6e545efac5.jpg)
-Click help button to know my commands!
+────「 {} 」────
+*Hey! {},*
+* I am an Anime themed advance group management bot with a lots of Features.*
+➖➖➖➖➖➖➖➖➖➖➖
+• :) 
+➖➖➖➖➖➖➖➖➖➖➖
+➛ Try The Help Buttons Below To Know My Abilities[.](https://telegra.ph/file/4d339f72dfe6e545efac5.jpg) ××
+"""
 """
 
 buttons = [

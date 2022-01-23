@@ -221,20 +221,21 @@ finally:
 
 # Telethon
 client = TelegramClient(MemorySession(), API_ID, API_HASH)
-updater = tg.Updater(
-    TOKEN,
-    workers=min(32, os.cpu_count() + 4),
-    request_kwargs={"read_timeout": 10, "connect_timeout": 10},
-)
+telethn = TelegramClient("flare", API_ID, API_HASH)
+pbot = Client("FlarePyro", api_id=API_ID,
+updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
+telethn = TelegramClient("flare", API_ID, API_HASH)
 dispatcher = updater.dispatcher
+pbot = Client("FlarePyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+mongo_client = MongoClient(MONGO_DB_URI)
+db = mongo_client.Flare_Robot
+session_name = TOKEN.split(":")[0]
 pgram = Client(
     session_name,
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=TOKEN,
 )
-telethn = TelegramClient("flare", API_ID, API_HASH)
-pbot = Client("FlarePyro", api_id=API_ID,
 
 
 DEV_USERS = list(DEV_USERS)

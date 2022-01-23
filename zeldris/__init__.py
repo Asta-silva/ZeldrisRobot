@@ -227,6 +227,14 @@ updater = tg.Updater(
     request_kwargs={"read_timeout": 10, "connect_timeout": 10},
 )
 dispatcher = updater.dispatcher
+pgram = Client(
+    session_name,
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=TOKEN,
+)
+telethn = TelegramClient("flare", API_ID, API_HASH)
+pbot = Client("FlarePyro", api_id=API_ID,
 
 DEV_USERS = list(DEV_USERS)
 WHITELIST_USERS = list(WHITELIST_USERS)

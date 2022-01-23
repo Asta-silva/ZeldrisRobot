@@ -43,6 +43,7 @@ from telegram.utils.helpers import escape_markdown
 
 from zeldris import (
     dispatcher,
+    ALLOW_EXCL,
     updater,
     StartTime,
     TOKEN,

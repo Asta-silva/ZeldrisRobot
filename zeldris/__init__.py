@@ -234,9 +234,8 @@ pgram = Client(
 )
 telethn = TelegramClient("flare", API_ID, API_HASH)
 pbot = Client("FlarePyro", api_id=API_ID,
-
-
 dispatcher = updater.dispatcher
+
 
 DEV_USERS = list(DEV_USERS)
 WHITELIST_USERS = list(WHITELIST_USERS)

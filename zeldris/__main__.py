@@ -44,7 +44,7 @@ from telegram.ext import (
 )
 from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
 from telegram.utils.helpers import escape_markdown
-from pyrogram import Client, idle
+from pyrogram import client, idle
 from telethon import Button, events
 
 

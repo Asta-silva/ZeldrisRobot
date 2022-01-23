@@ -94,6 +94,8 @@ def get_readable_time(seconds: int) -> str:
 
 ZELDRIS_IMG = "https://telegra.ph/file/094e440e1644222cdf885.mp4"
 
+GROUP_START_IMG = "https://telegra.ph/file/094e440e1644222cdf885.mp4"
+
 PM_START_TEXT = """
 ────「 {} 」────
 *Hey! {},*

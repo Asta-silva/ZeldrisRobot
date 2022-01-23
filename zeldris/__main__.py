@@ -99,7 +99,7 @@ PM_START_TEXT = """
 *Hey! {},*
 * I am an Anime themed advance group management bot with a lots of Features.*
 ➖➖➖➖➖➖➖➖➖➖➖
-• :) 
+• *Uptime:* `{}`
 ➖➖➖➖➖➖➖➖➖➖➖
 ➛ Try The Help Buttons Below To Know My Abilities[.](https://telegra.ph/file/4d339f72dfe6e545efac5.jpg) ××
 """
@@ -223,7 +223,6 @@ def test(update: Update, _):
 
 def start(update: Update, context: CallbackContext):
     args = context.args
-    message = update.effective_message
     uptime = get_readable_time((time.time() - StartTime))
     if update.effective_chat.type == "private":
         if len(args) >= 1:
@@ -237,13 +236,7 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton(
-                                    text="⬅️ BACK", callback_data="help_back"
-                                )
-                            ]
-                        ]
+                        [[InlineKeyboardButton(text="[► Back ◄]", callback_data="help_back")]]
                     ),
                 )
 
@@ -260,13 +253,14 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            message.reply_text(
+            first_name = update.effective_user.first_name
+            update.effective_message.reply_text(
                 PM_START_TEXT.format(
                     escape_markdown(context.bot.first_name),
+                    escape_markdown(first_name),
                     escape_markdown(uptime),
                     sql.num_users(),
-                    sql.num_chats(),
-                ),
+                    sql.num_chats()),                        
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,

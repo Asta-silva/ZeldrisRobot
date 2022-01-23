@@ -102,7 +102,6 @@ PM_START_TEXT = """
 ➖➖➖➖➖➖➖➖➖➖➖
 ➛ Try The Help Buttons Below To Know My Abilities[.](https://telegra.ph/file/4d339f72dfe6e545efac5.jpg) ××
 """
-"""
 
 buttons = [
     [

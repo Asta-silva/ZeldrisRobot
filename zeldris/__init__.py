@@ -222,6 +222,7 @@ finally:
 # Telethon
 client = TelegramClient(MemorySession(), API_ID, API_HASH)
 telethn = TelegramClient("flare", API_ID, API_HASH)
+pbot = Client("FlarePyro", bot_token=TOKEN)
 updater = tg.Updater(
     TOKEN,
     workers=min(32, os.cpu_count() + 4),

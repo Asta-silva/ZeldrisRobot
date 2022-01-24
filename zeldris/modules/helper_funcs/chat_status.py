@@ -29,6 +29,9 @@ from zeldris import (
     DEV_USERS,
     WHITELIST_USERS,
     dispatcher,
+    DRAGONS,
+    WOLVES,
+    SUPPORT_USERS
 )
 
 # refresh cache 10m
@@ -234,6 +237,66 @@ def dev_plus(func):
 
     return is_dev_plus_func
 
+
+def sudo_plus(func):
+    @wraps(func)
+    def is_sudo_plus_func(update: Update, context: CallbackContext, *args, **kwargs):
+        bot = context.bot
+        user = update.effective_user
+        chat = update.effective_chat
+
+        if user and is_sudo_plus(chat, user.id):
+            return func(update, context, *args, **kwargs)
+        elif not user:
+            pass
+        elif DEL_CMDS and " " not in update.effective_message.text:
+            try:
+                update.effective_message.delete()
+            except:
+                pass
+        else:
+            update.effective_message.reply_text(
+                "Who dis non-admin telling me what to do? You want a punch?",
+            )
+
+    return is_sudo_plus_func
+
+
+def support_plus(func):
+    @wraps(func)
+    def is_support_plus_func(update: Update, context: CallbackContext, *args, **kwargs):
+        bot = context.bot
+        user = update.effective_user
+        chat = update.effective_chat
+
+        if user and is_support_plus(chat, user.id):
+            return func(update, context, *args, **kwargs)
+        elif DEL_CMDS and " " not in update.effective_message.text:
+            try:
+                update.effective_message.delete()
+            except:
+                pass
+
+    return is_support_plus_func
+
+
+def whitelist_plus(func):
+    @wraps(func)
+    def is_whitelist_plus_func(
+        update: Update, context: CallbackContext, *args, **kwargs,
+    ):
+        bot = context.bot
+        user = update.effective_user
+        chat = update.effective_chat
+
+        if user and is_whitelist_plus(chat, user.id):
+            return func(update, context, *args, **kwargs)
+        else:
+            update.effective_message.reply_text(
+                f"You don't have access to use this.\nVisit @{SUPPORT_CHAT}",
+            )
+
+    return is_whitelist_plus_func
 
 def connection_status(func):
     @wraps(func)

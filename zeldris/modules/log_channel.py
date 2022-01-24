@@ -84,6 +84,30 @@ if is_module_loaded(FILENAME):
                     + "\n\nFormatting has been disabled due to an unexpected error.",
                 )
 
+def gloggable(func):
+        @wraps(func)
+        def glog_action(update: Update, context: CallbackContext, *args, **kwargs):
+            result = func(update, context, *args, **kwargs)
+            chat = update.effective_chat
+            message = update.effective_message
+
+            if result:
+                datetime_fmt = "%H:%M - %d-%m-%Y"
+                result += "\n<b>Event Stamp</b>: <code>{}</code>".format(
+                    datetime.utcnow().strftime(datetime_fmt),
+                )
+
+                if message.chat.type == chat.SUPERGROUP and message.chat.username:
+                    result += f'\n<b>Link:</b> <a href="https://t.me/{chat.username}/{message.message_id}">click here</a>'
+                log_chat = str(EVENT_LOGS)
+                if log_chat:
+                    send_log(context, log_chat, chat.id, result)
+
+            return result
+
+        return glog_action
+
+
     @user_admin
     def logging(update: Update, context: CallbackContext):
         message = update.effective_message

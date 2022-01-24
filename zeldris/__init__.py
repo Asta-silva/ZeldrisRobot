@@ -133,6 +133,7 @@ if ENV:
     SPAMWATCH = os.environ.get("SPAMWATCH_API", None)
     SPAMMERS = os.environ.get("SPAMMERS", None)
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "Freia_Support")
+    EVENT_LOGS = OS.environ.get("EVENT_LOGS", "-1001509602771")
 
 else:
     from zeldris.config import Development as Config

@@ -697,26 +697,26 @@ Group admins/group owners do not need these commands.
 Visit @{SUPPORT_CHAT} for more information.
 """
 
-DEV_HANDLER = CommandHandler(("addpiro", "addheal"), addpiro run_async=true)
-SUDO_HANDLER = CommandHandler(("addsudo", "addknight"), addsudo run_async=true)
-SUPPORT_HANDLER = CommandHandler(("addsupport", "addattack"), addsupport run_async=true)
-TIGER_HANDLER = CommandHandler(("adddefend"), addtiger run_async=true)
-WHITELIST_HANDLER = CommandHandler(("adddemi", "addwolf"), addwhitelist run_async=true)
+DEV_HANDLER = CommandHandler(("addpiro", "addheal"), addpiro, run_async=true)
+SUDO_HANDLER = CommandHandler(("addsudo", "addknight"), addsudo, run_async=true)
+SUPPORT_HANDLER = CommandHandler(("addsupport", "addattack"), addsupport, run_async=true)
+TIGER_HANDLER = CommandHandler(("adddefend"), addtiger, run_async=true)
+WHITELIST_HANDLER = CommandHandler(("adddemi", "addwolf"), addwhitelist, run_async=true)
 
-RMPIRO_HANDLER = CommandHandler(("rmheal", "removesudo"), rmpiro run_async=true)
-UNSUDO_HANDLER = CommandHandler(("removesudo", "rmknight"), removesudo run_async=true)
+RMPIRO_HANDLER = CommandHandler(("rmheal", "removesudo"), rmpiro, run_async=true)
+UNSUDO_HANDLER = CommandHandler(("removesudo", "rmknight"), removesudo, run_async=true)
 UNSUPPORT_HANDLER = CommandHandler(("removesupport", "rmattack"),
-                                   removesupport run_async=true)
-UNTIGER_HANDLER = CommandHandler(("rmdefend"), removetiger run_async=true)
+                                   removesupport, run_async=true)
+UNTIGER_HANDLER = CommandHandler(("rmdefend"), removetiger, run_async=true)
 UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "rmdemi"),
-                                     removewhitelist run_async=true)
+                                     removewhitelist, run_async=true)
 
 WHITELISTLIST_HANDLER = CommandHandler(["whitelist", "demilist"],
-                                       whitelist run_async=true)
-TIGERLIST_HANDLER = CommandHandler(["defenders"], tigerlist run_async=true)
-SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "attackers"], supportlist run_async=true)
-SUDOLIST_HANDLER = CommandHandler(["sudolist", "knights"], sudolist run_aeync=true)
-DEVLIST_HANDLER = CommandHandler(["devlist", "healers"], devlist run_async=true)
+                                       whitelist, run_async=true)
+TIGERLIST_HANDLER = CommandHandler(["defenders"], tigerlist, run_async=true)
+SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "attackers"], supportlist, run_async=true)
+SUDOLIST_HANDLER = CommandHandler(["sudolist", "knights"], sudolist, run_aeync=true)
+DEVLIST_HANDLER = CommandHandler(["devlist", "healers"], devlist, run_async=true)
 
 dispatcher.add_handler(DEV_HANDLER)
 dispatcher.add_handler(SUDO_HANDLER)

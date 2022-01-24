@@ -39,6 +39,17 @@ ADMIN_CACHE = TTLCache(maxsize=512, ttl=60 * 10)
 THREAD_LOCK = RLock()
 
 
+def is_whitelist_plus(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
+    return any(user_id in user for user in [WOLVES, TIGERS, DEMONS, DRAGONS, DEV_USERS])
+
+
+def is_support_plus(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
+    return user_id in DEMONS or user_id in DRAGONS or user_id in DEV_USERS
+
+
+def is_sudo_plus(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
+    return user_id in DRAGONS or user_id in DEV_USERS
+
 def can_delete(chat: Chat, bot_id: int) -> bool:
     return chat.get_member(bot_id).can_delete_messages
 

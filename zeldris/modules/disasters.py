@@ -715,7 +715,7 @@ WHITELISTLIST_HANDLER = CommandHandler(["whitelist", "demilist"],
                                        whitelist, run_async=true)
 TIGERLIST_HANDLER = CommandHandler(["defenders"], tigerlist, run_async=true)
 SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "attackers"], supportlist, run_async=true)
-SUDOLIST_HANDLER = CommandHandler(["sudolist", "knights"], sudolist, run_aeync=true)
+SUDOLIST_HANDLER = CommandHandler(["sudolist", "knights"], sudolist, run_async=true)
 DEVLIST_HANDLER = CommandHandler(["devlist", "healers"], devlist, run_async=true)
 
 dispatcher.add_handler(DEV_HANDLER)

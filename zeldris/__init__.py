@@ -53,6 +53,10 @@ if ENV:
         )
 
     try:
+        DEMONS = (int(x) for x in os.environ.get("DEMONS", "").split())
+    except ValueError:
+        raise Exception("Your support users list does not contain valid integers.")
+    try:
         SUPPORT_USERS = {int(x) for x in os.environ.get("SUPPORT_USERS", "").split()}
     except ValueError:
         raise Exception(
@@ -137,6 +141,10 @@ else:
             "Your sudo or dev users list does not contain valid integers."
         )
 
+    try:
+        DEMONS = (int(x) for x in Config.DEMONS or [])
+    except ValueError:
+        raise Exception("Your support users list does not contain valid integers.")
     try:
         SUPPORT_USERS = {int(x) for x in Config.SUPPORT_USERS or []}
     except ValueError:
@@ -230,6 +238,7 @@ WHITELIST_USERS = list(WHITELIST_USERS)
 SUPPORT_USERS = list(SUPPORT_USERS)
 TIGERS = list(TIGERS)
 WOLVES = list(WOLVES)
+DEMONS = list(DEMONS)
 
 
 # Load at end to ensure all prev variables have been set

@@ -86,6 +86,10 @@ if ENV:
             "[Flare] Your whitelisted users list does not contain valid integers."
         )
     try:
+        WOLVES = set(int(x) for x in os.environ.get("WOLVES", "").split())
+    except ValueError:
+        raise Exception("Your whitelisted users list does not contain valid integers.")
+    try:
         TIGERS = (int(x) for x in os.environ.get("TIGERS", "").split())
     except ValueError:
         raise Exception("Your tiger users list does not contain valid integers.")
@@ -164,6 +168,10 @@ else:
             "[Flare] Your whitelisted users list does not contain valid integers."
         )
     try:
+        WOLVES = set(int(x) for x in Config.WOLVES or [])
+    except ValueError:
+        raise Exception("Your whitelisted users list does not contain valid integers.")
+    try:
         TIGERS = (int(x) for x in Config.TIGERS or [])
     except ValueError:
         raise Exception("Your tiger users list does not contain valid integers.")
@@ -238,6 +246,7 @@ DEV_USERS = list(DEV_USERS)
 WHITELIST_USERS = list(WHITELIST_USERS)
 SUPPORT_USERS = list(SUPPORT_USERS)
 TIGERS = list(TIGERS)
+
 
 # Load at end to ensure all prev variables have been set
 # pylint: disable=C0413

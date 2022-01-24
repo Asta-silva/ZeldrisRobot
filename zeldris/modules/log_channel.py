@@ -84,6 +84,8 @@ if is_module_loaded(FILENAME):
                     + "\n\nFormatting has been disabled due to an unexpected error.",
                 )
 
+
+@user_admin
 def gloggable(func):
         @wraps(func)
         def glog_action(update: Update, context: CallbackContext, *args, **kwargs):

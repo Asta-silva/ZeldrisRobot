@@ -64,13 +64,9 @@ if ENV:
 
     try:
         DRAGONS = set{int(x) for x in os.environ.get("DRAGONS", "").split()}
-
-    try:
-        DEV_USERS = {int(x) for x in os.environ.get("DEV_USERS", "").split()}
+        DEV_USERS = set{int(x) for x in os.environ.get("DEV_USERS", "").split()}
     except ValueError:
-        raise Exception(
-            "[Flare] Your dev users list does not contain valid integers."
-        )
+        raise Exception("Your sudo or dev users list does not contain valid integers.")
 
     try:
         SUPPORT_USERS = {int(x) for x in os.environ.get("SUPPORT_USERS", "").split()}
@@ -142,13 +138,9 @@ else:
 
     try:
         DRAGONS = set{int(x) for x in Config.DRAGONS or []}
-
-    try:
-        DEV_USERS = {int(x) for x in Config.DEV_USERS or []}
+        DEV_USERS = set{int(x) for x in Config.DEV_USERS or []}
     except ValueError:
-        raise Exception(
-            "[Flare] Your dev users list does not contain valid integers."
-        )
+        raise Exception("Your sudo or dev users list does not contain valid integers.")
 
     try:
         SUPPORT_USERS = {int(x) for x in Config.SUPPORT_USERS or []}
@@ -229,10 +221,10 @@ updater = tg.Updater(
 )
 dispatcher = updater.dispatcher
 
+DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
 WHITELIST_USERS = list(WHITELIST_USERS)
 SUPPORT_USERS = list(SUPPORT_USERS)
-DRAGONS = list(DRAGONS)
 
 # Load at end to ensure all prev variables have been set
 # pylint: disable=C0413

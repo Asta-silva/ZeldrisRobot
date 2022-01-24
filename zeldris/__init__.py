@@ -63,17 +63,20 @@ if ENV:
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
 
     try:
+        DRAGONS = set(int(x) for x in os.environ.get("DRAGONS", "").split())
+
+    try:
         DEV_USERS = {int(x) for x in os.environ.get("DEV_USERS", "").split()}
     except ValueError:
         raise Exception(
-            "[Zeldris] Your dev users list does not contain valid integers."
+            "[Flare] Your dev users list does not contain valid integers."
         )
 
     try:
         SUPPORT_USERS = {int(x) for x in os.environ.get("SUPPORT_USERS", "").split()}
     except ValueError:
         raise Exception(
-            "[Zeldris] Your support users list does not contain valid integers."
+            "[Flare] Your support users list does not contain valid integers."
         )
 
     try:
@@ -82,7 +85,7 @@ if ENV:
         }
     except ValueError:
         raise Exception(
-            "[Zeldris] Your whitelisted users list does not contain valid integers."
+            "[Flare] Your whitelisted users list does not contain valid integers."
         )
     try:
         WHITELIST_CHATS = {
@@ -90,7 +93,7 @@ if ENV:
         }
     except ValueError:
         raise Exception(
-            "[Zeldris] Your whitelisted chats list does not contain valid integers."
+            "[Flare] Your whitelisted chats list does not contain valid integers."
         )
     try:
         BLACKLIST_CHATS = {
@@ -98,7 +101,7 @@ if ENV:
         }
     except ValueError:
         raise Exception(
-            "[Zeldris] Your blacklisted chats list does not contain valid integers."
+            "[Flare] Your blacklisted chats list does not contain valid integers."
         )
 
     WEBHOOK = bool(os.environ.get("WEBHOOK", False))
@@ -138,36 +141,39 @@ else:
     OWNER_USERNAME = Config.OWNER_USERNAME
 
     try:
+        DRAGONS = set(int(x) for x in Config.DRAGONS or []}
+
+    try:
         DEV_USERS = {int(x) for x in Config.DEV_USERS or []}
     except ValueError:
         raise Exception(
-            "[Zeldris] Your dev users list does not contain valid integers."
+            "[Flare] Your dev users list does not contain valid integers."
         )
 
     try:
         SUPPORT_USERS = {int(x) for x in Config.SUPPORT_USERS or []}
     except ValueError:
         raise Exception(
-            "[Zeldris] Your support users list does not contain valid integers."
+            "[Flare] Your support users list does not contain valid integers."
         )
 
     try:
         WHITELIST_USERS = {int(x) for x in Config.WHITELIST_USERS or []}
     except ValueError:
         raise Exception(
-            "[Zeldris] Your whitelisted users list does not contain valid integers."
+            "[Flare] Your whitelisted users list does not contain valid integers."
         )
     try:
         WHITELIST_CHATS = {int(x) for x in Config.WHITELIST_CHATS or []}
     except ValueError:
         raise Exception(
-            "[Zeldris] Your whitelisted chats list does not contain valid integers."
+            "[Flare] Your whitelisted chats list does not contain valid integers."
         )
     try:
         BLACKLIST_CHATS = {int(x) for x in Config.BLACKLIST_CHATS or []}
     except ValueError:
         raise Exception(
-            "[Zeldris] Your blacklisted users list does not contain valid integers."
+            "[Flare] Your blacklisted users list does not contain valid integers."
         )
 
     WEBHOOK = Config.WEBHOOK
@@ -195,6 +201,7 @@ else:
 
 # Dont Remove This!!!
 DEV_USERS.add(OWNER_ID)
+DRAGONS.add(OWNER_ID)
 
 # Pass if SpamWatch token not set.
 if SPAMWATCH is None:
@@ -225,6 +232,7 @@ dispatcher = updater.dispatcher
 DEV_USERS = list(DEV_USERS)
 WHITELIST_USERS = list(WHITELIST_USERS)
 SUPPORT_USERS = list(SUPPORT_USERS)
+DRAGONS = list(DRAGONS)
 
 # Load at end to ensure all prev variables have been set
 # pylint: disable=C0413

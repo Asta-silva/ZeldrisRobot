@@ -1,21 +1,3 @@
-# ZeldrisRobot
-# Copyright (C) 2017-2019, Paul Larsen
-# Copyright (C) 2022, IDNCoderX Team, <https://github.com/IDN-C-X/ZeldrisRobot>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-
-
 import logging
 import os
 import sys
@@ -133,7 +115,7 @@ if ENV:
     SPAMWATCH = os.environ.get("SPAMWATCH_API", None)
     SPAMMERS = os.environ.get("SPAMMERS", None)
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "Freia_Support")
-    EVENT_LOGS = OS.environ.get("EVENT_LOGS", "-1001509602771")
+    EVENT_LOGS = os.environ.get("EVENT_LOGS", "-1001509602771")
 
 else:
     from zeldris.config import Development as Config

@@ -30,7 +30,6 @@ from zeldris import (
     WHITELIST_USERS,
     dispatcher,
     DRAGONS,
-    WOLVES,
     SUPPORT_USERS
 )
 
@@ -58,6 +57,7 @@ def is_user_ban_protected(chat: Chat, user_id: int, member: ChatMember = None) -
     if (
         chat.type == "private"
         or user_id in DEV_USERS
+        or user_id in DRAGONS
         or user_id in WHITELIST_USERS
         or chat.all_members_are_administrators
         or user_id in {777000, 1087968824}

@@ -29,8 +29,7 @@ from zeldris import (
     DEV_USERS,
     WHITELIST_USERS,
     dispatcher,
-    DRAGONS,
-    SUPPORT_USERS
+    DRAGONS
 )
 from zeldris import SUPPORT_USERS as DEMONS
 

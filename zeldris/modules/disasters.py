@@ -8,6 +8,8 @@ from zeldris import (DEV_USERS, OWNER_ID, DRAGONS,
                           TIGERS, dispatcher)
 from zeldris.modules.helper_funcs.chat_status import (dev_plus, sudo_plus,
                                                            whitelist_plus)
+from zeldris import SUPPORT_USERS as DEMONS
+from zeldris import WHITELIST_USERS as WOLVES
 from zeldris.modules.helper_funcs.extraction import extract_user
 from zeldris.modules.log_channel import gloggable
 from telegram import ParseMode, TelegramError, Update

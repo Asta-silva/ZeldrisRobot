@@ -29,6 +29,7 @@ from zeldris import (
     dispatcher,
     OWNER_ID,
     DEV_USERS,
+    DRAGONS,
     SUPPORT_USERS,
     STRICT_GBAN,
     MESSAGE_DUMP,
@@ -107,6 +108,12 @@ def gban(update: Update, context: CallbackContext):
     if int(user_id) in SUPPORT_USERS:
         message.reply_text(
             "OOOH someone's trying to gban a support user! *grabs popcorn*"
+        )
+        return
+
+    if int(user_id) in DRAGONS:
+        message.reply_text(
+            "OOOH someone's trying to gban a Dragon ! *grabs popcorn*"
         )
         return
 

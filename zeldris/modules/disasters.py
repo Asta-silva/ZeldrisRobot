@@ -4,8 +4,8 @@ import json
 import os
 from typing import Optional
 
-from zeldris import (DEV_USERS, OWNER_ID, DRAGONS, DEMONS, SUPPORT_USERS,
-                          TIGERS, WOLVES, dispatcher)
+from zeldris import (DEV_USERS, OWNER_ID, DRAGONS,
+                          TIGERS, dispatcher)
 from zeldris.modules.helper_funcs.chat_status import (dev_plus, sudo_plus,
                                                            whitelist_plus)
 from zeldris.modules.helper_funcs.extraction import extract_user

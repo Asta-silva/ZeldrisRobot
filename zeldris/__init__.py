@@ -134,7 +134,7 @@ else:
             "Your sudo or dev users list does not contain valid integers."
         )
 
-        try:
+    try:
         SUPPORT_USERS = {int(x) for x in Config.SUPPORT_USERS or []}
     except ValueError:
         raise Exception(

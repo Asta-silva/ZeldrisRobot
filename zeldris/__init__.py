@@ -68,7 +68,7 @@ if ENV:
             "[Flare] Your whitelisted users list does not contain valid integers."
         )
     
-  try:
+    try:
         TIGERS = (int(x) for x in os.environ.get("TIGERS", "").split())
     except ValueError:
         raise Exception("Your tiger users list does not contain valid integers.")

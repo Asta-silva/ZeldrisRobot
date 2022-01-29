@@ -220,6 +220,7 @@ updater = tg.Updater(
 )
 dispatcher = updater.dispatcher
 session_name = TOKEN.split(":")[0]
+db = mongo_client.zeldris
 pgram = Client(
     session_name,
     api_id=API_ID,

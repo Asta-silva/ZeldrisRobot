@@ -29,7 +29,8 @@ from zeldris import (
     DEV_USERS,
     WHITELIST_USERS,
     dispatcher,
-    DRAGONS
+    DRAGONS,
+    TIGERS
 )
 from zeldris import SUPPORT_USERS as DEMONS
 from zeldris import WHITELIST_USERS as WOLVES

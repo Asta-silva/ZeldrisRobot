@@ -8,6 +8,7 @@ import telegram.ext as tg
 from redis import StrictRedis
 from telethon import TelegramClient
 from telethon.sessions import MemorySession
+from pyrogram import Client, errors
 
 StartTime = time.time()
 
@@ -113,6 +114,7 @@ if ENV:
     SPAMMERS = os.environ.get("SPAMMERS", None)
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", "Freia_Support")
     EVENT_LOGS = os.environ.get("EVENT_LOGS", "-1001509602771")
+    STRING_SESSION = os.environ.get("STRING_SESSION", None)
 
 else:
     from zeldris.config import Development as Config
@@ -211,18 +213,18 @@ finally:
 
 # Telethon
 client = TelegramClient(MemorySession(), API_ID, API_HASH)
-Client = TelegramClient(MemorySession(), API_ID, API_HASH)A
 updater = tg.Updater(
     TOKEN,
     workers=min(32, os.cpu_count() + 4),
     request_kwargs={"read_timeout": 10, "connect_timeout": 10},
 )
 dispatcher = updater.dispatcher
+session_name = TOKEN.split(":")[0]
 pgram = Client(
     session_name,
-    api_id = API_ID,
-    api_hash = API_HASH,
-    bot_token = TOKEN,
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=TOKEN,
 )
 
 

@@ -32,6 +32,7 @@ from zeldris import (
     DRAGONS
 )
 from zeldris import SUPPORT_USERS as DEMONS
+from zeldris import WHITELIST_USERS as WOLVES
 
 # refresh cache 10m
 ADMIN_CACHE = TTLCache(maxsize=512, ttl=60 * 10)

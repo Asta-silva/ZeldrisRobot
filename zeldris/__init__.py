@@ -211,12 +211,28 @@ finally:
 
 # Telethon
 client = TelegramClient(MemorySession(), API_ID, API_HASH)
+Client = TelegramClient(MemorySession(), API_ID, API_HASH)A
 updater = tg.Updater(
     TOKEN,
     workers=min(32, os.cpu_count() + 4),
     request_kwargs={"read_timeout": 10, "connect_timeout": 10},
 )
 dispatcher = updater.dispatcher
+pgram = Client(
+    session_name,
+    api_id = API_ID,
+    api_hash = API_HASH,
+    bot_token = TOKEN,
+)
+
+
+apps = [pgram]
+DRAGONS = list(DRAGONS) + list(DEV_USERS)
+DEV_USERS = list(DEV_USERS)
+WOLVES = list(WOLVES)
+DEMONS = list(DEMONS)
+TIGERS = list(TIGERS)
+
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
